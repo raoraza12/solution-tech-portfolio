@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore featured projects from Solution Tech." />
+    <title>Solution Tech | Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=2.0" />
+  </head>
+  <body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <img src="solution tech logo.png" alt="Solution Tech logo" class="brand-logo" />
+        <span>Solution Tech</span>
+      </a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="projects-intro reveal">
+        <p class="eyebrow">Selected Work</p>
+        <h1 class="page-title">Projects built with precision, storytelling, and modern web craft.</h1>
+        <p class="hero-text">
+          From AI-driven products to premium commerce experiences, every build is shaped to feel polished, fast, and memorable.
+        </p>
+        <div class="projects-badges">
+          <span class="project-pill">AI-first</span>
+          <span class="project-pill">Modern UI</span>
+          <span class="project-pill">Scalable builds</span>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All Projects (8)</button>
+          <button class="filter-btn" data-filter="ai">Full Stack & AI</button>
+          <button class="filter-btn" data-filter="ecommerce">E-Commerce & Retail</button>
+          <button class="filter-btn" data-filter="edtech">EdTech & Academies</button>
+          <button class="filter-btn" data-filter="corporate">Corporate & Agency</button>
+        </div>
+      </section>
+
+      <section class="project-split-list reveal">
+        <!-- Project 1: Study Al Quran -->
+        <article class="project-row" data-category="edtech">
+          <div class="project-row-media">
+            <img class="project-row-img" src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=1000&q=80" alt="Study Al Quran Online Learning Platform UI Preview" />
+          </div>
+          <div class="project-row-content">
+            <span class="project-tag" style="width: fit-content;">EdTech & Learning Academy</span>
+            <h2 class="project-row-title"><span class="project-icon">📖</span> Study Al Quran</h2>
+            <p class="project-row-desc">An international online Quran & Islamic education platform engineered for seamless student enrollment, live tutor session scheduling, course curriculum tracking, and global accessibility across desktop & mobile.</p>
+            <div class="project-tech">
+              <strong>Tech Stack:</strong> React.js, Node.js API, MongoDB, Tailwind CSS, Vercel
+            </div>
+            <div class="project-row-actions">
+              <button onclick="openCaseStudy('studyalquran')" class="btn btn-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Case Study 🔍</button>
+              <a href="https://studyalquran.com" target="_blank" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Live Site ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Cells Part E-Commerce -->
+        <article class="project-row" data-category="ecommerce">
+          <div class="project-row-media">
+            <img class="project-row-img" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=80" alt="Cells Part E-Commerce Tech Store UI Preview" />
+          </div>
+          <div class="project-row-content">
+            <span class="project-tag" style="width: fit-content;">High-Volume E-Commerce</span>
+            <h2 class="project-row-title"><span class="project-icon">📱</span> Cells Part Store</h2>
+            <p class="project-row-desc">A robust e-commerce platform for tech and mobile replacement parts featuring full product catalog management, instant SKU search, cart persistence, and secure checkout processing.</p>
+            <div class="project-tech">
+              <strong>Tech Stack:</strong> MERN Stack (MongoDB, Express, React, Node), Redux, Stripe
+            </div>
+            <div class="project-row-actions">
+              <button onclick="openCaseStudy('cellspart')" class="btn btn-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Case Study 🔍</button>
+              <a href="https://cellspart.com" target="_blank" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Live Site ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: 6Star Pools Australia -->
+        <article class="project-row" data-category="corporate">
+          <div class="project-row-media">
+            <img class="project-row-img" src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1000&q=80" alt="6Star Pools Australia Corporate Website UI Preview" />
+          </div>
+          <div class="project-row-content">
+            <span class="project-tag" style="width: fit-content;">Corporate & Agency (Australia)</span>
+            <h2 class="project-row-title"><span class="project-icon">🏊</span> 6Star Pools Australia</h2>
+            <p class="project-row-desc">A high-converting web platform built for a premier Australian swimming pool construction & maintenance company. Features custom project showcases, service quote estimators, and lead funnels.</p>
+            <div class="project-tech">
+              <strong>Tech Stack:</strong> Modern Frontend, Webflow / Framer, Custom JS, High-Speed CDN
+            </div>
+            <div class="project-row-actions">
+              <button onclick="openCaseStudy('starpools')" class="btn btn-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Case Study 🔍</button>
+              <a href="https://6starpools.au/" target="_blank" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Live Site ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Al Noor Quran Academy -->
+        <article class="project-row" data-category="edtech">
+          <div class="project-row-media">
+            <img class="project-row-img" src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1000&q=80" alt="Al Noor Online Quran Academy Portal UI Preview" />
+          </div>
+          <div class="project-row-content">
+            <span class="project-tag" style="width: fit-content;">Global EdTech Portal</span>
+            <h2 class="project-row-title"><span class="project-icon">🌙</span> Al Noor Quran Academy</h2>
+            <p class="project-row-desc">A worldwide digital learning portal connecting students across the UK, USA, and Australia with certified tutors. Includes comprehensive course modules, student portals, and contact forms.</p>
+            <div class="project-tech">
+              <strong>Tech Stack:</strong> Modern Web Architecture, PHP/Node.js, MySQL, CSS3 Grid
+            </div>
+            <div class="project-row-actions">
+              <button onclick="openCaseStudy('alnoorquran')" class="btn btn-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Case Study 🔍</button>
+              <a href="https://www.alnooronlinequranacademy.com/" target="_blank" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Live Site ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5: Aspect Window Cleaning Australia -->
+        <article class="project-row" data-category="corporate">
+          <div class="project-row-media">
+            <img class="project-row-img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80" alt="Aspect Window Cleaning Australia UI Preview" />
+          </div>
+          <div class="project-row-content">
+            <span class="project-tag" style="width: fit-content;">Commercial Service (Australia)</span>
+            <h2 class="project-row-title"><span class="project-icon">✨</span> Aspect Cleaning Australia</h2>
+            <p class="project-row-desc">A modern commercial and residential service platform engineered for an Australian cleaning agency. Features instant service package booking, client reviews, and direct quote requests.</p>
+            <div class="project-tech">
+              <strong>Tech Stack:</strong> Custom Frontend, Framer / CMS, High-Performance CSS
+            </div>
+            <div class="project-row-actions">
+              <button onclick="openCaseStudy('aspectcleaning')" class="btn btn-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Case Study 🔍</button>
+              <a href="https://aspectwindowcleaning.com.au/" target="_blank" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Live Site ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6: Nexus AI Book -->
+        <article class="project-row" data-category="ai">
+          <div class="project-row-media">
+            <img class="project-row-img" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1000&q=80" alt="Nexus AI Interactive Online E-Book Reading Platform UI Preview" />
+          </div>
+          <div class="project-row-content">
+            <span class="project-tag" style="width: fit-content;">AI Online E-Book Reader Platform</span>
+            <h2 class="project-row-title"><span class="project-icon">🤖</span> Nexus AI Interactive Book</h2>
+            <p class="project-row-desc">An intelligent online digital book & e-reading platform where users can read books online, chat directly with an AI reading assistant, get instant chapter summaries, and translate or explain complex concepts while reading.</p>
+            <div class="project-tech">
+              <strong>Tech Stack:</strong> Next.js, Node.js, Express, MongoDB, Gemini AI API, Tailwind
+            </div>
+            <div class="project-row-actions">
+              <button onclick="openCaseStudy('nexus')" class="btn btn-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">Read Online / Case Study 🔍</button>
+              <a href="https://nexus-ai-book.vercel.app/" target="_blank" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">Open Live Book Reader ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 7: HealthMate -->
+        <article class="project-row" data-category="ai">
+          <div class="project-row-media">
+            <img class="project-row-img" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80" alt="HealthMate Patient Metrics & Digital Health Dashboard UI Preview" />
+          </div>
+          <div class="project-row-content">
+            <span class="project-tag" style="width: fit-content;">MERN Stack Web App</span>
+            <h2 class="project-row-title"><span class="project-icon">🩺</span> HealthMate Wellness</h2>
+            <p class="project-row-desc">A comprehensive health tracking and wellness platform built to streamline patient data management and health monitoring. Features an intuitive dashboard for seamless tracking and secure authentication.</p>
+            <div class="project-tech">
+              <strong>Tech Stack:</strong> React.js, Tailwind CSS, Node.js, Express, MongoDB
+            </div>
+            <div class="project-row-actions">
+              <button onclick="openCaseStudy('healthmate')" class="btn btn-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Case Study 🔍</button>
+              <a href="https://healthmate-frontend-five.vercel.app/" target="_blank" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Live Project ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 8: Luxe Clothing Brand -->
+        <article class="project-row" data-category="ecommerce">
+          <div class="project-row-media">
+            <img class="project-row-img" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80" alt="Luxe Clothing High Fashion E-Commerce Storefront UI Preview" />
+          </div>
+          <div class="project-row-content">
+            <span class="project-tag" style="width: fit-content;">MERN Stack & E-Commerce</span>
+            <h2 class="project-row-title"><span class="project-icon">◈</span> Luxe Clothing Brand</h2>
+            <p class="project-row-desc">A robust MERN stack e-commerce web application featuring full CRUD capabilities, secure data routing, and an optimized interface. Built for high-volume shopping transactions.</p>
+            <div class="project-tech">
+              <strong>Tech Stack:</strong> React.js, Redux Toolkit, Tailwind CSS, Node.js, MongoDB
+            </div>
+            <div class="project-row-actions">
+              <button onclick="openCaseStudy('luxe')" class="btn btn-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Case Study 🔍</button>
+              <a href="https://luxe-brand.vercel.app/" target="_blank" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.9rem;">View Live Project ↗</a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Case Study Modal Dialog -->
+    <div class="modal-overlay" id="caseStudyModal" aria-hidden="true">
+      <div class="modal-card">
+        <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <span class="project-tag" id="modalTag">Full Stack with AI</span>
+          <h2 id="modalTitle">Project Title</h2>
+          <img id="modalMedia" class="modal-media" src="" alt="Project Preview" />
+          <p id="modalDesc"></p>
+          <div>
+            <h4 style="color: var(--accent); margin-bottom: 0.4rem;">Key Architecture & Technical Highlights:</h4>
+            <ul class="modal-highlights" id="modalHighlights"></ul>
+          </div>
+          <div style="margin-top: 0.5rem;">
+            <strong style="color: var(--text);">Tech Stack:</strong>
+            <p id="modalTech" style="color: var(--muted); font-size: 0.92rem;"></p>
+          </div>
+          <div style="margin-top: 1rem;">
+            <a id="modalLink" href="#" target="_blank" class="btn btn-primary">Launch Live Application ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Solution Tech. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923292179603?text=Hi%20Solution%20Tech,%20I%20want%20to%20discuss%20a%20project" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+      <span>Quick WhatsApp Chat</span>
+    </a>
+
+    <script src="script.js?v=2.0"></script>
+  </body>
+</html>

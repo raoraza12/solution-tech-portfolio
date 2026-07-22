@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Solution Tech is a polished multi-page portfolio for a creative digital team." />
+    <title>Solution Tech | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=2.0" />
+  </head>
+  <body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <img src="solution tech logo.png" alt="Solution Tech logo" class="brand-logo" />
+        <span>Solution Tech</span>
+      </a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">🟢 Solution Tech • Full-Stack Agency</p>
+          <h1>Engineering Web Applications, AI Integrations & Digital Products.</h1>
+          <p class="hero-text">
+            We build high-performance MERN stack apps, AI document workflows, e-commerce portals, and enterprise websites designed for scale and business growth.
+          </p>
+          <div class="hero-actions">
+            <a href="projects.html" class="btn btn-primary">Explore Featured Projects ↗</a>
+            <a href="contact.html" class="btn btn-secondary">Start a Project</a>
+          </div>
+        </div>
+
+        <div class="hero-card hero-visual-card">
+          <img
+            class="hero-visual"
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80"
+            alt="Modern web software engineering setup with dual monitors and code editor"
+          />
+          <div class="hero-card-content">
+            <div class="card-badge">Our Core Expertise</div>
+            <h3><span class="card-icon">⚡</span> High-speed engineering, AI capabilities & production reliability.</h3>
+            <ul class="feature-list">
+              <li>Full-Stack Web & MERN App Development</li>
+              <li>AI API Integration & RAG Workflows</li>
+              <li>High-Converting E-Commerce & Corporate Sites</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack Ticker Marquee (Logos Only) -->
+      <section class="tech-marquee-section reveal">
+        <div class="tech-marquee-track">
+          <!-- React -->
+          <span class="tech-tag-pill" title="React.js">
+            <svg viewBox="-11.5 -10.2 23 20.4" fill="none"><circle cx="0" cy="0" r="2.05" fill="#61dafb"/><g stroke="#61dafb" stroke-width="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
+          </span>
+          <!-- Next.js -->
+          <span class="tech-tag-pill" title="Next.js">
+            <svg viewBox="0 0 180 180" fill="none"><circle cx="90" cy="90" r="85" fill="#000" stroke="#00D8FF" stroke-width="6"/><path d="M149.5 157.5L69.1 54H54v72h15.5V76.6l70.7 91.3a89.5 89.5 0 009.3-10.4z" fill="#FFF"/><path d="M125 54h15v72h-15z" fill="#FFF"/></svg>
+          </span>
+          <!-- Node.js -->
+          <span class="tech-tag-pill" title="Node.js">
+            <svg viewBox="0 0 256 289" fill="none"><path d="M128 0L9 68.7v151.6l119 68.7 119-68.7V68.7L128 0z" fill="#339933"/><path d="M128 13.5l107.3 61.9v139.2L128 276.5 20.7 214.6V75.4L128 13.5z" fill="#66CC33"/><path d="M128 139.7l64.1-37v74.1l-64.1 37v-74.1z" fill="#FFF" opacity="0.8"/></svg>
+          </span>
+          <!-- MongoDB -->
+          <span class="tech-tag-pill" title="MongoDB">
+            <svg viewBox="0 0 24 32" fill="none"><path d="M11.3 0c-.3 0-.6.2-.7.5C9 6.2 5.5 13.2 5.5 18.2c0 4.1 3 7.5 6.5 7.5s6.5-3.4 6.5-7.5c0-5-3.5-12-5.1-17.7-.1-.3-.4-.5-.7-.5z" fill="#47A248"/><path d="M12 25.7v6.3c0 .2.2.4.4.4.2 0 .4-.2.4-.4v-6.3c0-.1-.2-.2-.4-.2s-.4.1-.4.2z" fill="#449A45"/></svg>
+          </span>
+          <!-- Gemini AI -->
+          <span class="tech-tag-pill" title="Gemini AI">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z" fill="url(#geminiGrad)"/><defs><linearGradient id="geminiGrad" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#00D8FF"/><stop offset="0.5" stop-color="#7000FF"/><stop offset="1" stop-color="#FF5E99"/></linearGradient></defs></svg>
+          </span>
+          <!-- Tailwind CSS -->
+          <span class="tech-tag-pill" title="Tailwind CSS">
+            <svg viewBox="0 0 24 15" fill="none"><path d="M6 0C3.3 0 1.5 1.4 0.6 4.1C1.8 2.3 3.3 1.8 5.1 2.7C6.1 3.2 6.8 4 7.7 4.9C9.1 6.3 10.7 8 14.4 8C17.1 8 18.9 6.6 19.8 3.9C18.6 5.7 17.1 6.2 15.3 5.3C14.3 4.8 13.6 4 12.7 3.1C11.3 1.7 9.7 0 6 0Z" fill="#38BDF8"/></svg>
+          </span>
+          <!-- JavaScript / TS -->
+          <span class="tech-tag-pill" title="JavaScript / TypeScript">
+            <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#F7DF1E"/><path d="M19.4 24.3c.9.6 2 .9 3.2.9 2.2 0 3.6-1.1 3.6-2.7 0-1.6-.9-2.3-3.1-3.2l-1.1-.5c-3-1.3-4.4-2.8-4.4-5.5 0-3.3 2.6-5.8 6.7-5.8 2.6 0 4.5.6 5.7 1.4l-1.3 3.6c-.9-.6-2.2-1.1-3.9-1.1-1.8 0-2.8.9-2.8 2.1 0 1.4 1 2.1 3.1 3l1.1.5c3.2 1.4 4.7 2.9 4.7 5.7 0 3.8-2.9 6.2-7.8 6.2-3 0-5.3-.8-6.6-1.7l1.4-3.5z" fill="#000"/></svg>
+          </span>
+          <!-- Python -->
+          <span class="tech-tag-pill" title="Python">
+            <svg viewBox="0 0 110 110" fill="none"><path d="M53.7 2C27.4 2 28.9 13.4 28.9 13.4l.1 13.8h25.4v3.6H19.5S2 29.3 2 55.7c0 26.4 15.3 25.5 15.3 25.5h9.1V68.5s-.5-15.3 15-15.3h25.7s14.4.2 14.4-14V24.5S103 2 53.7 2z" fill="#3776AB"/><path d="M55.8 108c26.3 0 24.8-11.4 24.8-11.4l-.1-13.8H55.1v-3.6h34.9s17.5 1.5 17.5-24.9c0-26.4-15.3-25.5-15.3-25.5h-9.1v12.7s.5 15.3-15 15.3H42.9s-14.4-.2-14.4 14v14.7S13 108 55.8 108z" fill="#FFD43B"/></svg>
+          </span>
+          <!-- Webflow -->
+          <span class="tech-tag-pill" title="Webflow / Framer">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M72.9 25L52.8 75H38.5L25.7 43.1L12.9 75H0L20.1 25H34.4L47.2 56.9L60 25H72.9ZM100 25L87.1 56.9L74.3 25H61.4L79.9 75H94.2L100 25Z" fill="#146EF5"/></svg>
+          </span>
+          <!-- Vercel -->
+          <span class="tech-tag-pill" title="Vercel Deployment">
+            <svg viewBox="0 0 116 100" fill="#FFF"><path d="M58 0L116 100H0L58 0Z"/></svg>
+          </span>
+          <!-- AWS Cloud -->
+          <span class="tech-tag-pill" title="AWS Cloud Infrastructure">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#FF9900"/></svg>
+          </span>
+
+          <!-- Duplicate Set for Continuous Seamless Loop -->
+          <span class="tech-tag-pill" title="React.js">
+            <svg viewBox="-11.5 -10.2 23 20.4" fill="none"><circle cx="0" cy="0" r="2.05" fill="#61dafb"/><g stroke="#61dafb" stroke-width="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
+          </span>
+          <span class="tech-tag-pill" title="Next.js">
+            <svg viewBox="0 0 180 180" fill="none"><circle cx="90" cy="90" r="85" fill="#000" stroke="#00D8FF" stroke-width="6"/><path d="M149.5 157.5L69.1 54H54v72h15.5V76.6l70.7 91.3a89.5 89.5 0 009.3-10.4z" fill="#FFF"/><path d="M125 54h15v72h-15z" fill="#FFF"/></svg>
+          </span>
+          <span class="tech-tag-pill" title="Node.js">
+            <svg viewBox="0 0 256 289" fill="none"><path d="M128 0L9 68.7v151.6l119 68.7 119-68.7V68.7L128 0z" fill="#339933"/><path d="M128 13.5l107.3 61.9v139.2L128 276.5 20.7 214.6V75.4L128 13.5z" fill="#66CC33"/><path d="M128 139.7l64.1-37v74.1l-64.1 37v-74.1z" fill="#FFF" opacity="0.8"/></svg>
+          </span>
+          <span class="tech-tag-pill" title="MongoDB">
+            <svg viewBox="0 0 24 32" fill="none"><path d="M11.3 0c-.3 0-.6.2-.7.5C9 6.2 5.5 13.2 5.5 18.2c0 4.1 3 7.5 6.5 7.5s6.5-3.4 6.5-7.5c0-5-3.5-12-5.1-17.7-.1-.3-.4-.5-.7-.5z" fill="#47A248"/><path d="M12 25.7v6.3c0 .2.2.4.4.4.2 0 .4-.2.4-.4v-6.3c0-.1-.2-.2-.4-.2s-.4.1-.4.2z" fill="#449A45"/></svg>
+          </span>
+          <span class="tech-tag-pill" title="Gemini AI">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z" fill="url(#geminiGrad2)"/><defs><linearGradient id="geminiGrad2" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#00D8FF"/><stop offset="0.5" stop-color="#7000FF"/><stop offset="1" stop-color="#FF5E99"/></linearGradient></defs></svg>
+          </span>
+          <span class="tech-tag-pill" title="Tailwind CSS">
+            <svg viewBox="0 0 24 15" fill="none"><path d="M6 0C3.3 0 1.5 1.4 0.6 4.1C1.8 2.3 3.3 1.8 5.1 2.7C6.1 3.2 6.8 4 7.7 4.9C9.1 6.3 10.7 8 14.4 8C17.1 8 18.9 6.6 19.8 3.9C18.6 5.7 17.1 6.2 15.3 5.3C14.3 4.8 13.6 4 12.7 3.1C11.3 1.7 9.7 0 6 0Z" fill="#38BDF8"/></svg>
+          </span>
+          <span class="tech-tag-pill" title="JavaScript / TypeScript">
+            <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#F7DF1E"/><path d="M19.4 24.3c.9.6 2 .9 3.2.9 2.2 0 3.6-1.1 3.6-2.7 0-1.6-.9-2.3-3.1-3.2l-1.1-.5c-3-1.3-4.4-2.8-4.4-5.5 0-3.3 2.6-5.8 6.7-5.8 2.6 0 4.5.6 5.7 1.4l-1.3 3.6c-.9-.6-2.2-1.1-3.9-1.1-1.8 0-2.8.9-2.8 2.1 0 1.4 1 2.1 3.1 3l1.1.5c3.2 1.4 4.7 2.9 4.7 5.7 0 3.8-2.9 6.2-7.8 6.2-3 0-5.3-.8-6.6-1.7l1.4-3.5z" fill="#000"/></svg>
+          </span>
+          <span class="tech-tag-pill" title="Python">
+            <svg viewBox="0 0 110 110" fill="none"><path d="M53.7 2C27.4 2 28.9 13.4 28.9 13.4l.1 13.8h25.4v3.6H19.5S2 29.3 2 55.7c0 26.4 15.3 25.5 15.3 25.5h9.1V68.5s-.5-15.3 15-15.3h25.7s14.4.2 14.4-14V24.5S103 2 53.7 2z" fill="#3776AB"/><path d="M55.8 108c26.3 0 24.8-11.4 24.8-11.4l-.1-13.8H55.1v-3.6h34.9s17.5 1.5 17.5-24.9c0-26.4-15.3-25.5-15.3-25.5h-9.1v12.7s.5 15.3-15 15.3H42.9s-14.4-.2-14.4 14v14.7S13 108 55.8 108z" fill="#FFD43B"/></svg>
+          </span>
+          <span class="tech-tag-pill" title="Webflow / Framer">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M72.9 25L52.8 75H38.5L25.7 43.1L12.9 75H0L20.1 25H34.4L47.2 56.9L60 25H72.9ZM100 25L87.1 56.9L74.3 25H61.4L79.9 75H94.2L100 25Z" fill="#146EF5"/></svg>
+          </span>
+          <span class="tech-tag-pill" title="Vercel Deployment">
+            <svg viewBox="0 0 116 100" fill="#FFF"><path d="M58 0L116 100H0L58 0Z"/></svg>
+          </span>
+          <span class="tech-tag-pill" title="AWS Cloud Infrastructure">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#FF9900"/></svg>
+          </span>
+        </div>
+      </section>
+
+      <section class="info-grid reveal">
+        <article class="info-card">
+          <img class="card-media" src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=900&q=80" alt="UI/UX design system wireframes and strategy board" />
+          <h3><span class="card-icon">✦</span> Design-led thinking</h3>
+          <p>Every experience is shaped with clarity, balance, and purpose.</p>
+        </article>
+        <article class="info-card">
+          <img class="card-media" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=900&q=80" alt="Modern agency team collaboration on client project" />
+          <h3><span class="card-icon">◎</span> Built for clients</h3>
+          <p>We focus on smooth communication, clean execution, and a strong final experience.</p>
+        </article>
+        <article class="info-card">
+          <img class="card-media" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80" alt="Cloud server infrastructure and scalable technology network" />
+          <h3><span class="card-icon">⬢</span> Ready to scale</h3>
+          <p>Our work is built to support growth, iteration, and long-term impact.</p>
+        </article>
+      </section>
+
+      <section class="stats-grid reveal">
+        <article class="stat-card">
+          <strong>10+</strong>
+          <span>Projects delivered</span>
+        </article>
+        <article class="stat-card">
+          <strong>5+</strong>
+          <span>Countries served</span>
+        </article>
+        <article class="stat-card">
+          <strong>98%</strong>
+          <span>Client satisfaction</span>
+        </article>
+        <article class="stat-card">
+          <strong>24/7</strong>
+          <span>Support mindset</span>
+        </article>
+      </section>
+
+      <section class="section-block reveal">
+        <div class="section-header">
+          <p class="eyebrow">Services</p>
+          <h2>Everything you need to launch a stronger digital presence.</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <img class="card-media" src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?auto=format&fit=crop&w=900&q=80" alt="Brand identity design guidelines and creative strategy" />
+            <div class="card-icon">🧠</div>
+            <h3>Strategy & Branding</h3>
+            <p>Clear positioning, messaging, and brand direction for modern growth.</p>
+          </article>
+          <article class="service-card">
+            <img class="card-media" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=900&q=80" alt="Futuristic UI UX web application design dashboard" />
+            <div class="card-icon">🎨</div>
+            <h3>UI/UX Design</h3>
+            <p>Elegant interfaces designed for clarity, trust, and effortless interaction.</p>
+          </article>
+          <article class="service-card">
+            <img class="card-media" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="Full stack web development code editor with JavaScript React" />
+            <div class="card-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>Fast, responsive websites and web apps built with modern tools.</p>
+          </article>
+          <article class="service-card">
+            <img class="card-media" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80" alt="Artificial intelligence neural network and automated AI concept" />
+            <div class="card-icon">⚙️</div>
+            <h3>AI Solutions</h3>
+            <p>Smart experiences powered by automation, chat, and intelligent workflows.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block reveal">
+        <div class="section-header">
+          <p class="eyebrow">How we work</p>
+          <h2>A clear process from discovery to launch.</h2>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <span>01</span>
+            <h3>Discover</h3>
+            <p>We understand your goals, audience, and growth priorities.</p>
+          </article>
+          <article class="process-card">
+            <span>02</span>
+            <h3>Plan</h3>
+            <p>We shape the experience, structure, and visual direction.</p>
+          </article>
+          <article class="process-card">
+            <span>03</span>
+            <h3>Build</h3>
+            <p>We design and develop with performance, clarity, and quality in mind.</p>
+          </article>
+          <article class="process-card">
+            <span>04</span>
+            <h3>Launch</h3>
+            <p>We support launch and refinement so your brand keeps growing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block reveal">
+        <div class="section-header">
+          <p class="eyebrow">Our Agency Promises</p>
+          <h2>Why clients partner with Solution Tech.</h2>
+        </div>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3><span class="card-icon">⚡</span> Rapid Agile Sprints</h3>
+            <p>We deliver clean, working code in fast weekly iterations so you can test and launch without delays.</p>
+          </article>
+          <article class="info-card">
+            <h3><span class="card-icon">🔒</span> Production-Grade Quality</h3>
+            <p>Zero compromises on security, clean architecture, responsive layouts, and sub-second page performance.</p>
+          </article>
+          <article class="info-card">
+            <h3><span class="card-icon">💬</span> Direct Founder Access</h3>
+            <p>No account manager middle-men. You communicate directly with senior full-stack developers.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-banner reveal">
+        <div>
+          <p class="eyebrow">Ready when you are</p>
+          <h2>Let’s build something memorable together.</h2>
+          <p>Bring us your idea and we’ll shape it into a refined digital experience.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book a Discovery Call</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Solution Tech. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923292179603?text=Hi%20Solution%20Tech,%20I%20want%20to%20discuss%20a%20project" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+      <span>Quick WhatsApp Chat</span>
+    </a>
+
+    <script src="script.js?v=2.0"></script>
+  </body>
+</html>
