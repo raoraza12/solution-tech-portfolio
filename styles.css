@@ -61,12 +61,25 @@ html {
 .project-card,
 .team-card,
 .contact-card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  border-radius: 24px;
-  backdrop-filter: blur(16px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, background 0.4s ease;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 242, 254, 0.22);
+  box-shadow: none;
+  border-radius: 0;
+  padding: 1.8rem 0.5rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.hero-card:hover,
+.info-card:hover,
+.detail-card:hover,
+.project-card:hover,
+.team-card:hover,
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-bottom-color: #00f2fe;
+  background: transparent;
+  box-shadow: none;
 }
 
 body {
@@ -349,10 +362,11 @@ p {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #00d8ff, #ff5e99);
-  color: #051018;
+  background: linear-gradient(135deg, #00f2fe 0%, #ff007f 100%);
+  color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 0 22px rgba(0, 216, 255, 0.24);
+  border: none;
+  box-shadow: 0 8px 25px rgba(0, 242, 254, 0.35);
   animation: buttonPulse 3s ease-in-out infinite;
 }
 
