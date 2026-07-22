@@ -32,30 +32,82 @@
 
     <main class="page-shell">
       <section class="reveal">
-        <p class="eyebrow">Let’s Connect</p>
-        <h1 class="page-title">Ready to build something memorable together?</h1>
-        <p class="hero-text">Send us a message and we’ll get back to you with ideas, next steps, and a thoughtful plan.</p>
+        <p class="eyebrow">🟢 Accepting New Projects</p>
+        <h1 class="page-title">Let's Build Your Next High-Performance Project</h1>
+        <p class="hero-text">Have a new project or idea? Fill out the form below or chat directly with our team on WhatsApp for an instant response and free project proposal.</p>
       </section>
 
       <section class="detail-section reveal">
+        <!-- Contact Form Card -->
         <article class="contact-card">
+          <h3 style="margin-bottom: 0.5rem;"><span class="card-icon">✉</span> Send Project Inquiry</h3>
+          <p style="margin-bottom: 1.2rem; font-size: 0.94rem;">We typically review and respond within 2-4 business hours.</p>
+          
           <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea rows="5" name="message" placeholder="Tell us about your idea..." required></textarea>
+            <input type="text" name="name" placeholder="Your Name or Business Name *" required />
+            <input type="email" name="email" placeholder="Your Email Address *" required />
+            <input type="tel" name="phone" placeholder="WhatsApp / Phone Number (Optional)" />
+            
+            <select name="service_type" required>
+              <option value="" disabled selected>Select Primary Project Type *</option>
+              <option value="Full-Stack MERN Application">Full-Stack MERN Web Application</option>
+              <option value="AI Integration & Automation">AI Integration & RAG Workflows</option>
+              <option value="E-Commerce Storefront">E-Commerce & Retail Portal</option>
+              <option value="Corporate CMS & Webflow Site">Corporate Site (Webflow / Framer / WP)</option>
+              <option value="UI/UX Design System">UI/UX & 3D Visual Design</option>
+            </select>
+
+            <select name="budget_range">
+              <option value="" disabled selected>Estimated Budget Range (Optional)</option>
+              <option value="$500 - $1,500">$500 – $1,500</option>
+              <option value="$1,500 - $3,000">$1,500 – $3,000</option>
+              <option value="$3,000 - $5,000">$3,000 – $5,000+</option>
+              <option value="Custom Enterprise">Custom Enterprise Scope</option>
+            </select>
+
+            <textarea rows="5" name="message" placeholder="Describe your project goals, features, or timeline..." required></textarea>
+            
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_subject" value="New message from Solution Tech website" />
+            <input type="hidden" name="_subject" value="New Project Inquiry from Solution Tech Website" />
+            
             <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
-            <button type="submit" id="submitBtn" class="btn btn-primary">Send Message</button>
+            <button type="submit" id="submitBtn" class="btn btn-primary" style="font-size: 1rem; padding: 0.95rem 1.5rem;">Send Project Inquiry 🚀</button>
           </form>
         </article>
+
+        <!-- Direct Contact Info Card -->
         <article class="detail-card">
-          <h3>Contact Details</h3>
-          <p><strong>Email:</strong> <a href="mailto:solution.tech.1214@gmail.com" style="color: var(--accent); text-decoration: none;">solution.tech.1214@gmail.com</a></p>
-          <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/923292179603" target="_blank" style="color: var(--accent); text-decoration: none;">+92 329 2179603</a></p>
-          <p><strong>Location:</strong> Karachi, Pakistan</p>
-          <p style="margin-top: 1rem; color: var(--muted); font-size: 0.9rem;">Available for worldwide projects.</p>
+          <h3 style="margin-bottom: 0.5rem;"><span class="card-icon">⚡</span> Instant Agency Channels</h3>
+          <p style="margin-bottom: 1.4rem; font-size: 0.94rem;">Prefer instant messaging? Connect with our leads directly:</p>
+
+          <div class="contact-info-block">
+            <div class="contact-info-item">
+              <span class="card-icon" style="background: rgba(37, 211, 102, 0.2); border-color: rgba(37, 211, 102, 0.4); color: #25d366;">💬</span>
+              <div>
+                <strong style="color: var(--text); font-size: 1.05rem;">Quick WhatsApp Chat</strong>
+                <p style="margin: 0.2rem 0 0.5rem; font-size: 0.92rem;">Direct messaging for fast quotes & consultations.</p>
+                <a href="https://wa.me/923292179603?text=Hi%20Solution%20Tech,%20I%20want%20to%20discuss%20a%20project" target="_blank" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.85rem; background: linear-gradient(135deg, #25d366, #128c7e);">Chat +92 329 2179603 ↗</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <span class="card-icon">✉</span>
+              <div>
+                <strong style="color: var(--text); font-size: 1.05rem;">Official Agency Email</strong>
+                <p style="margin: 0.2rem 0 0.5rem; font-size: 0.92rem;">Send formal RFPs or project specifications.</p>
+                <a href="mailto:solution.tech.1214@gmail.com" class="project-link" style="font-size: 0.9rem;">solution.tech.1214@gmail.com ↗</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <span class="card-icon">📍</span>
+              <div>
+                <strong style="color: var(--text); font-size: 1.05rem;">Studio Location</strong>
+                <p style="margin: 0.2rem 0 0; font-size: 0.92rem;">Karachi, Pakistan — Serving clients across USA, UK, Australia & UAE with timezone-friendly support.</p>
+              </div>
+            </div>
+          </div>
         </article>
       </section>
     </main>
