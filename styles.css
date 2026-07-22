@@ -1487,4 +1487,133 @@ textarea:focus {
   .project-row-img {
     height: 230px;
   }
+}
+
+/* ==========================================================================
+   MASTER 100% BORDERLESS CARDS & COMPREHENSIVE MOBILE RESPONSIVE ENGINE
+   ========================================================================== */
+
+/* 1. Master Site-Wide 100% Borderless Card Override */
+.hero-card,
+.info-card,
+.detail-card,
+.project-card,
+.team-card,
+.contact-card,
+.stat-card,
+.service-card,
+.process-card,
+.testimonial-card,
+.panel,
+.section-block,
+.projects-intro,
+.cta-banner,
+.tech-pill-card {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(0, 242, 254, 0.2) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 1.8rem 0.5rem !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease !important;
+}
+
+.hero-card:hover,
+.info-card:hover,
+.detail-card:hover,
+.project-card:hover,
+.team-card:hover,
+.contact-card:hover,
+.stat-card:hover,
+.service-card:hover,
+.process-card:hover,
+.testimonial-card:hover,
+.panel:hover,
+.section-block:hover,
+.projects-intro:hover,
+.cta-banner:hover,
+.tech-pill-card:hover {
+  transform: translateY(-4px) !important;
+  border-bottom-color: #00f2fe !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 2. Comprehensive Mobile & Tablet Responsiveness Pass */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 1rem 0 !important;
+    min-height: auto !important;
+    text-align: center !important;
+  }
+
+  .hero-actions {
+    justify-content: center !important;
+  }
+
+  .info-grid,
+  .stats-grid,
+  .services-grid,
+  .process-grid,
+  .testimonial-grid,
+  .team-grid,
+  .detail-section {
+    grid-template-columns: 1fr !important;
+    gap: 1.6rem !important;
+  }
+
+  .page-shell {
+    width: calc(100% - 1.5rem) !important;
+    padding: 1.5rem 0 2rem !important;
+  }
+
+  .page-title,
+  .hero h1 {
+    font-size: clamp(1.8rem, 6vw, 2.6rem) !important;
+  }
+
+  .hero-text {
+    font-size: 1.02rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    width: calc(100% - 1rem) !important;
+    padding: 0.55rem 0.9rem !important;
+    top: 0.4rem !important;
+  }
+
+  .brand {
+    font-size: 0.85rem !important;
+  }
+
+  .brand-logo {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.92rem !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .project-row-img {
+    height: 190px !important;
+  }
+
+  .modal-content {
+    width: 94% !important;
+    padding: 1.2rem !important;
+  }
 }
