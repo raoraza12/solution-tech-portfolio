@@ -1493,7 +1493,7 @@ textarea:focus {
    MASTER 100% BORDERLESS CARDS & COMPREHENSIVE MOBILE RESPONSIVE ENGINE
    ========================================================================== */
 
-/* 1. Master Site-Wide 100% Borderless Card Override */
+/* 1. Master Site-Wide Glassmorphic Card Borders Restore */
 .hero-card,
 .info-card,
 .detail-card,
@@ -1509,15 +1509,14 @@ textarea:focus {
 .projects-intro,
 .cta-banner,
 .tech-pill-card {
-  background: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid rgba(0, 242, 254, 0.2) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  padding: 1.8rem 0.5rem !important;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease !important;
+  background: rgba(10, 16, 30, 0.75) !important;
+  border: 1px solid rgba(0, 242, 254, 0.28) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 242, 254, 0.12) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  padding: 1.5rem !important;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease !important;
 }
 
 .hero-card:hover,
@@ -1535,10 +1534,10 @@ textarea:focus {
 .projects-intro:hover,
 .cta-banner:hover,
 .tech-pill-card:hover {
-  transform: translateY(-4px) !important;
-  border-bottom-color: #00f2fe !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  transform: translateY(-5px) scale(1.01) !important;
+  border-color: #00f2fe !important;
+  background: rgba(14, 22, 42, 0.85) !important;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.55), 0 0 32px rgba(0, 242, 254, 0.25) !important;
 }
 
 /* 2. Comprehensive Mobile & Tablet Responsiveness Pass */
