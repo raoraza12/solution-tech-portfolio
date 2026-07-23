@@ -1542,6 +1542,11 @@ textarea:focus {
 
 /* 2. Comprehensive Mobile & Tablet Responsiveness Pass */
 @media (max-width: 900px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .hero {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
