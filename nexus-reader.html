@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus AI — Interactive Online E-Book Reader & AI Tutor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #040711;
+        --panel: #0a1020;
+        --accent: #00f2fe;
+        --pink: #ff007f;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --border: rgba(0, 242, 254, 0.22);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      /* Reader Header */
+      .reader-header {
+        height: 65px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(6, 10, 22, 0.9);
+        backdrop-filter: blur(16px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .reader-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        text-decoration: none;
+        color: var(--text);
+        font-family: 'Outfit', sans-serif;
+        font-weight: 800;
+        font-size: 1.15rem;
+      }
+
+      .ai-status-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0, 242, 254, 0.1);
+        border: 1px solid rgba(0, 242, 254, 0.3);
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: var(--accent);
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #00f2fe;
+        box-shadow: 0 0 10px #00f2fe;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+      .back-btn {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 0.45rem 0.9rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.2s ease;
+      }
+
+      .back-btn:hover { color: var(--text); border-color: var(--accent); background: rgba(0, 242, 254, 0.1); }
+
+      /* Reader Grid Layout */
+      .reader-layout {
+        display: grid;
+        grid-template-columns: 280px 1fr 380px;
+        flex: 1;
+        height: calc(100vh - 65px);
+      }
+
+      /* Sidebar Left: Books & Chapters */
+      .sidebar-left {
+        border-right: 1px solid var(--border);
+        background: rgba(10, 16, 30, 0.6);
+        padding: 1.2rem;
+        overflow-y: auto;
+      }
+
+      .section-label {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--accent);
+        margin-bottom: 0.8rem;
+      }
+
+      .book-card {
+        padding: 0.85rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 1.2rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .book-card.active {
+        border-color: var(--accent);
+        background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(255, 0, 127, 0.1));
+      }
+
+      .book-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; }
+      .book-author { font-size: 0.8rem; color: var(--muted); }
+
+      .chapter-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+      .chapter-item {
+        padding: 0.6rem 0.8rem;
+        border-radius: 8px;
+        font-size: 0.88rem;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .chapter-item:hover, .chapter-item.active {
+        color: var(--text);
+        background: rgba(0, 242, 254, 0.12);
+      }
+
+      /* Main Book Reader Content */
+      .reader-main {
+        padding: 2.5rem 3.5rem;
+        overflow-y: auto;
+        line-height: 1.85;
+        font-size: 1.08rem;
+        color: #e2e8f0;
+      }
+
+      .reader-main h1 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 2.2rem;
+        color: #fff;
+        margin-bottom: 0.6rem;
+      }
+
+      .reader-meta {
+        font-size: 0.9rem;
+        color: var(--accent);
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .reader-main p { margin-bottom: 1.4rem; }
+
+      .ai-highlight-quote {
+        background: rgba(0, 242, 254, 0.08);
+        border-left: 3px solid var(--accent);
+        padding: 1rem 1.2rem;
+        margin: 1.5rem 0;
+        border-radius: 0 12px 12px 0;
+        font-style: italic;
+      }
+
+      /* Sidebar Right: AI Assistant */
+      .sidebar-right {
+        border-left: 1px solid var(--border);
+        background: rgba(8, 12, 24, 0.85);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ai-header {
+        padding: 1.2rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 700;
+        font-family: 'Outfit', sans-serif;
+      }
+
+      .chat-messages {
+        flex: 1;
+        padding: 1.2rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .msg {
+        padding: 0.85rem 1rem;
+        border-radius: 14px;
+        font-size: 0.92rem;
+        max-width: 90%;
+        line-height: 1.55;
+      }
+
+      .msg.user {
+        align-self: flex-end;
+        background: linear-gradient(135deg, #00f2fe, #38bdf8);
+        color: #040714;
+        font-weight: 600;
+      }
+
+      .msg.ai {
+        align-self: flex-start;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(0, 242, 254, 0.2);
+        color: #f1f5f9;
+      }
+
+      .quick-prompts {
+        padding: 0.8rem 1.2rem;
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .prompt-pill {
+        background: rgba(0, 242, 254, 0.1);
+        border: 1px solid rgba(0, 242, 254, 0.25);
+        color: var(--accent);
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .prompt-pill:hover {
+        background: rgba(0, 242, 254, 0.25);
+        border-color: #00f2fe;
+      }
+
+      .chat-input-box {
+        padding: 1rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 0.6rem;
+      }
+
+      .chat-input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.65rem 0.9rem;
+        color: #fff;
+        font: inherit;
+        font-size: 0.9rem;
+      }
+
+      .send-btn {
+        background: linear-gradient(135deg, #00f2fe, #ff007f);
+        border: none;
+        color: #fff;
+        padding: 0.65rem 1rem;
+        border-radius: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      @media (max-width: 1024px) {
+        .reader-layout { grid-template-columns: 1fr; height: auto; }
+        .sidebar-left, .sidebar-right { height: auto; }
+        .reader-main { padding: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="reader-header">
+      <a href="projects.html" class="reader-brand">
+        <span>🤖 Nexus AI E-Book Reader</span>
+      </a>
+      <div class="ai-status-badge">
+        <span class="status-dot"></span>
+        <span>Gemini 1.5 RAG Engine Active</span>
+      </div>
+      <a href="projects.html" class="back-btn">← Back to Portfolio Projects</a>
+    </header>
+
+    <div class="reader-layout">
+      <!-- Left Sidebar: Library -->
+      <aside class="sidebar-left">
+        <p class="section-label">Active E-Book Library</p>
+
+        <div class="book-card active">
+          <div class="book-title">The Future of AI & Systems</div>
+          <div class="book-author">By M Raza & Solution Tech</div>
+        </div>
+
+        <p class="section-label" style="margin-top: 1.5rem;">Table of Contents</p>
+        <ul class="chapter-list">
+          <li class="chapter-item active">Ch 1. Autonomous Agentic AI</li>
+          <li class="chapter-item">Ch 2. RAG & Vector Embeddings</li>
+          <li class="chapter-item">Ch 3. Real-Time Document Parsing</li>
+          <li class="chapter-item">Ch 4. Scaling Full-Stack Workflows</li>
+        </ul>
+      </aside>
+
+      <!-- Center: Reader Area -->
+      <main class="reader-main">
+        <h1>Chapter 1: The Era of Autonomous Agentic AI</h1>
+        <p class="reader-meta">Reading Time: 4 mins • AI Summarizer Ready • Interactive Tutor Enabled</p>
+
+        <p>Artificial Intelligence has evolved beyond simple text prediction into autonomous agentic systems capable of reasoning, planning, and executing complex software workflows. Modern web applications now leverage real-time Retrieval-Augmented Generation (RAG) to transform static reading into an interactive conversation.</p>
+
+        <div class="ai-highlight-quote">
+          "The modern digital book is no longer a passive medium. With Nexus AI, every paragraph becomes an active discussion between reader, context, and intelligent tutor."
+        </div>
+
+        <p>When a reader opens a technical manuscript on Nexus AI, background vector indexing chunks the text into semantic embeddings. As you highlight text or ask questions in the right-hand panel, the Gemini AI engine queries the document's embedding store to generate precise, hallucination-free explanations.</p>
+
+        <p>This allows readers to instantly request chapter summaries, translate technical jargon into plain language, or simulate interactive quiz sessions to reinforce comprehension.</p>
+      </main>
+
+      <!-- Right Sidebar: AI Tutor Chat -->
+      <aside class="sidebar-right">
+        <div class="ai-header">
+          <span>🤖 Nexus AI Reading Assistant</span>
+        </div>
+
+        <div class="chat-messages" id="chatBox">
+          <div class="msg ai">
+            Hello! I am your Nexus AI Reading Tutor. Ask me anything about Chapter 1 or request a quick chapter summary!
+          </div>
+        </div>
+
+        <div class="quick-prompts">
+          <button class="prompt-pill" onclick="sendPrompt('Summarize Chapter 1')">⚡ Summarize Ch. 1</button>
+          <button class="prompt-pill" onclick="sendPrompt('Explain RAG simply')">💡 Explain RAG</button>
+          <button class="prompt-pill" onclick="sendPrompt('What are key takeaways?')">📌 Key Takeaways</button>
+        </div>
+
+        <form class="chat-input-box" onsubmit="handleChatSubmit(event)">
+          <input type="text" id="userInput" class="chat-input" placeholder="Ask AI tutor about this book..." required />
+          <button type="submit" class="send-btn">Ask ↗</button>
+        </form>
+      </aside>
+    </div>
+
+    <script>
+      function sendPrompt(text) {
+        document.getElementById('userInput').value = text;
+        handleChatSubmit(new Event('submit'));
+      }
+
+      function handleChatSubmit(e) {
+        e.preventDefault();
+        const input = document.getElementById('userInput');
+        const text = input.value.trim();
+        if (!text) return;
+
+        const chatBox = document.getElementById('chatBox');
+
+        // Append User Message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'msg user';
+        userMsg.textContent = text;
+        chatBox.appendChild(userMsg);
+
+        input.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Simulate AI Tutor Response
+        setTimeout(() => {
+          const aiMsg = document.createElement('div');
+          aiMsg.className = 'msg ai';
+
+          if (text.includes('Summarize')) {
+            aiMsg.innerHTML = '⚡ <strong>Chapter 1 Summary:</strong><br/>• AI has shifted from simple text generation to autonomous agentic reasoning.<br/>• Vector indexing and RAG turn passive books into interactive AI learning experiences.<br/>• Readers can query, summarize, and translate concepts in real-time.';
+          } else if (text.includes('RAG')) {
+            aiMsg.innerHTML = '💡 <strong>RAG (Retrieval-Augmented Generation):</strong><br/>Instead of relying only on general AI knowledge, RAG fetches the exact text from the current book chapter to provide 100% accurate, context-aware answers without guessing.';
+          } else {
+            aiMsg.innerHTML = '🤖 <strong>Nexus AI Tutor Response:</strong><br/>Based on Chapter 1 ("Autonomous Agentic AI"), agentic AI systems autonomously break down complex tasks into manageable execution steps while keeping human oversight in control.';
+          }
+
+          chatBox.appendChild(aiMsg);
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, 600);
+      }
+    </script>
+  </body>
+</html>
