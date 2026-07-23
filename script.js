@@ -16,16 +16,19 @@ const observer = new IntersectionObserver(
 
 revealItems.forEach((item) => observer.observe(item));
 
-/* --- Interactive 3D Cyber Grid & Liquid Aurora Canvas Background --- */
+/* --- Interactive 3D Cyber Grid & Liquid Aurora Canvas Background (Performance Optimized) --- */
 const canvas = document.getElementById('particleCanvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
   let width, height;
-  let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2, targetX: window.innerWidth / 2, targetY: window.innerHeight / 2 };
+  let isMobile = window.innerWidth <= 768;
+  let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2, targetX: window.innerWidth / 2, targetY: window.innerHeight / 2, active: false };
+  let lastTime = 0;
 
   function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
+    isMobile = window.innerWidth <= 768;
   }
 
   window.addEventListener('resize', resize);
@@ -34,7 +37,16 @@ if (canvas) {
   window.addEventListener('mousemove', (e) => {
     mouse.targetX = e.clientX;
     mouse.targetY = e.clientY;
+    mouse.active = true;
   });
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 0) {
+      mouse.targetX = e.touches[0].clientX;
+      mouse.targetY = e.touches[0].clientY;
+      mouse.active = true;
+    }
+  }, { passive: true });
 
   class AuroraOrb {
     constructor(color, radius, vx, vy) {
@@ -50,14 +62,15 @@ if (canvas) {
     update() {
       this.x += this.vx;
       this.y += this.vy;
-      this.pulse += 0.02;
+      this.pulse += 0.015;
 
       if (this.x < -this.radius || this.x > width + this.radius) this.vx *= -1;
       if (this.y < -this.radius || this.y > height + this.radius) this.vy *= -1;
     }
 
     draw() {
-      const currentRadius = this.radius + Math.sin(this.pulse) * 40;
+      const scale = isMobile ? 0.55 : 1;
+      const currentRadius = (this.radius + Math.sin(this.pulse) * 30) * scale;
       const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, currentRadius);
       gradient.addColorStop(0, this.color);
       gradient.addColorStop(1, 'rgba(3, 5, 9, 0)');
@@ -70,49 +83,62 @@ if (canvas) {
   }
 
   const orbs = [
-    new AuroraOrb('rgba(0, 242, 254, 0.22)', 340, 0.4, 0.3),
-    new AuroraOrb('rgba(255, 0, 127, 0.18)', 380, -0.3, 0.4),
-    new AuroraOrb('rgba(121, 40, 202, 0.20)', 420, 0.3, -0.3),
-    new AuroraOrb('rgba(0, 242, 254, 0.16)', 300, -0.4, -0.2)
+    new AuroraOrb('rgba(0, 242, 254, 0.18)', 280, 0.35, 0.25),
+    new AuroraOrb('rgba(255, 0, 127, 0.14)', 320, -0.25, 0.35)
   ];
 
-  function animateCanvas() {
+  if (!isMobile) {
+    orbs.push(
+      new AuroraOrb('rgba(121, 40, 202, 0.16)', 360, 0.25, -0.25),
+      new AuroraOrb('rgba(0, 242, 254, 0.12)', 260, -0.3, -0.2)
+    );
+  }
+
+  function animateCanvas(timestamp) {
+    requestAnimationFrame(animateCanvas);
+
+    // Throttle frame rate on mobile to 30FPS for 0% CPU lag
+    if (isMobile) {
+      if (timestamp - lastTime < 32) return;
+      lastTime = timestamp;
+    }
+
     ctx.clearRect(0, 0, width, height);
 
-    // Smooth mouse dampening
     mouse.x += (mouse.targetX - mouse.x) * 0.06;
     mouse.y += (mouse.targetY - mouse.y) * 0.06;
 
-    // Draw Liquid Orbs
     orbs.forEach((orb) => {
       orb.update();
       orb.draw();
     });
 
-    // Interactive Mouse Spotlight Aura
-    const mouseGradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 250);
-    mouseGradient.addColorStop(0, 'rgba(0, 242, 254, 0.22)');
-    mouseGradient.addColorStop(0.5, 'rgba(255, 0, 127, 0.1)');
-    mouseGradient.addColorStop(1, 'rgba(3, 5, 9, 0)');
+    if (mouse.active && !isMobile) {
+      const mouseGradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 200);
+      mouseGradient.addColorStop(0, 'rgba(0, 242, 254, 0.18)');
+      mouseGradient.addColorStop(0.5, 'rgba(255, 0, 127, 0.08)');
+      mouseGradient.addColorStop(1, 'rgba(3, 5, 9, 0)');
 
-    ctx.beginPath();
-    ctx.arc(mouse.x, mouse.y, 250, 0, Math.PI * 2);
-    ctx.fillStyle = mouseGradient;
-    ctx.fill();
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, 200, 0, Math.PI * 2);
+      ctx.fillStyle = mouseGradient;
+      ctx.fill();
+    }
 
     // 3D Perspective Cyber Grid Lines
-    const horizon = height * 0.62;
-    ctx.strokeStyle = 'rgba(0, 242, 254, 0.08)';
+    const horizon = height * 0.65;
+    ctx.strokeStyle = 'rgba(0, 242, 254, 0.06)';
     ctx.lineWidth = 1;
 
-    for (let y = horizon; y < height; y += 24) {
+    const yStep = isMobile ? 36 : 24;
+    for (let y = horizon; y < height; y += yStep) {
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(width, y);
       ctx.stroke();
     }
 
-    const numLines = 18;
+    const numLines = isMobile ? 10 : 18;
     const centerX = width / 2;
     for (let i = 0; i <= numLines; i++) {
       const x = (width / numLines) * i;
@@ -121,11 +147,9 @@ if (canvas) {
       ctx.lineTo(x, height);
       ctx.stroke();
     }
-
-    requestAnimationFrame(animateCanvas);
   }
 
-  animateCanvas();
+  requestAnimationFrame(animateCanvas);
 }
 
 const year = document.getElementById('year');
@@ -323,7 +347,7 @@ const projectData = {
       '⚡ Instant Chapter Summaries, Highlights & Concept Explanation',
       '📚 Personal User Workspace, Saved Books & Reading Progress'
     ],
-    link: 'https://nexus-ai-book.vercel.app/'
+    link: 'https://wa.me/923292179603?text=Hi%20Solution%20Tech,%20I%20want%20to%20request%20a%20live%20demo%20access%20for%20Nexus%20AI%20Book%20Reader'
   },
   healthmate: {
     title: 'HealthMate Wellness Portal',

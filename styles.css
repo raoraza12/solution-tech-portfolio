@@ -1547,6 +1547,17 @@ textarea:focus {
     transform: none !important;
   }
 
+  .hero-card,
+  .info-card,
+  .detail-card,
+  .project-card,
+  .team-card,
+  .contact-card,
+  .site-header {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
   .hero {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
