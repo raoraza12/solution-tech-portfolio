@@ -347,7 +347,7 @@ const projectData = {
       '⚡ Instant Chapter Summaries, Highlights & Concept Explanation',
       '📚 Personal User Workspace, Saved Books & Reading Progress'
     ],
-    link: 'https://nexus-ai-book.vercel.app/'
+    link: 'https://wa.me/923292179603?text=Hi%20Solution%20Tech,%20I%20want%20to%20request%20a%20live%20demo%20access%20for%20Nexus%20AI%20Book%20Reader'
   },
   healthmate: {
     title: 'HealthMate Wellness Portal',
